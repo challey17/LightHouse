@@ -10,7 +10,7 @@ console.log(Date.now());
 const lat = 27.7;
 const lng = -82.74;
 const currrentTime = Date.now();
-// put in source query source = sg
+
 const params = [
   "airTemperature",
   "windDirection",
@@ -20,7 +20,7 @@ const params = [
 ].join(",");
 
 fetch(
-  `https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${lng}&params=${params}&time=${currrentTime}`,
+  `https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${lng}&params=${params}&time=${currrentTime}&source=sg`,
   {
     headers: {
       Authorization:
