@@ -33,3 +33,8 @@ fetch(
     // Do something with response data.
     console.log(jsonData);
   });
+
+// need to make  function(s) to convert metric units ,
+// moonrise/set sunrise/set will return a UTC timestamp, need to convert to local time
+// look at this https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
+//toLocaleDateString() or toLocaleString() <<< provides date and time when called without params
