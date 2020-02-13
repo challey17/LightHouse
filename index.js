@@ -2,14 +2,15 @@
 // ok here we go
 
 function displayCurrentWeater() {}
+let currentTime = new Date().getUTCHours();
 
-console.log(Date.now());
+console.log(currentTime);
 
 //testing fetch api
 
 const lat = 27.7;
 const lng = -82.74;
-const currrentTime = Date.now();
+const currrentUTCtime = Date.UTC();
 
 const params = [
   "airTemperature",
@@ -20,7 +21,7 @@ const params = [
 ].join(",");
 
 fetch(
-  `https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${lng}&params=${params}&time=${currrentTime}&source=sg`,
+  `https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${lng}&params=${params}&time=${currrentUTCtime}&source=sg`,
   {
     headers: {
       Authorization:
@@ -31,7 +32,8 @@ fetch(
   .then(response => response.json())
   .then(jsonData => {
     // Do something with response data.
-    console.log(jsonData);
+    console.log(jsonData.hours[currentTime].airTemperature[0].value);
+    console.log(jsonData.hours[currentTime].time);
   });
 
 // need to make  function(s) to convert metric units ,
