@@ -1,7 +1,16 @@
 "use strict";
 // ok here we go
 
-function displayCurrentWeater() {}
+function displayCurrentWeater(jsonData) {
+  $("#current-weather-results").append(
+    `<li>Air Temp ${jsonData.hours[currentTime].airTemperature[0].value}*C</li>
+    
+   <li>windDirection ${jsonData.hours[currentTime].windDirection[0].value}</li>
+   <li>windSpeed ${jsonData.hours[currentTime].windSpeed[0].value} m/s</li>
+   <li>gust ${jsonData.hours[currentTime].gust[0].value} m/s</li>
+   <li>waterTemperature ${jsonData.hours[currentTime].waterTemperature[0].value}*C</li>`
+  );
+}
 let currentTime = new Date().getUTCHours();
 
 console.log(currentTime);
@@ -34,6 +43,7 @@ fetch(
     // Do something with response data.
     console.log(jsonData.hours[currentTime].airTemperature[0].value);
     console.log(jsonData.hours[currentTime].time);
+    displayCurrentWeater(jsonData);
   });
 
 // need to make  function(s) to convert metric units ,
