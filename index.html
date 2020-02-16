@@ -19,9 +19,9 @@
     </section>
     <section id="search-by-time">
       <h2 id="time-picker">search by time</h2>
-      <form>
+      <form id="user-selection">
         <label for="time">Choose a time:</label>
-        <select id="cars" name="cars">
+        <select id="user-time" name="user-time">
           <option value="0">12:00 am</option>
           <option value="1">1:00 am</option>
           <option value="2">2:00 am</option>
@@ -47,21 +47,16 @@
           <option value="22">10:00 pm</option>
           <option value="23">11:00 pm</option>
         </select>
-        <input type="submit" />
+        <input id=" selection" type="submit" />
       </form>
-
-      <ul>
-        <li>airTemp</li>
-        <li>waterTemp</li>
-        <li>wind speed/direction</li>
-      </ul>
+      <ul id="selected-weather-results"></ul>
     </section>
     <script
       src="https://code.jquery.com/jquery-3.3.1.js"
       integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous"
     ></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/timepicker/"></script>-->
+
     <script src="index.js" async defer></script>
   </body>
 </html>

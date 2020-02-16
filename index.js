@@ -1,21 +1,125 @@
 "use strict";
 // ok here we go
+let results;
+/*function displayCurrentWeater(jsonData) {
+  //convert units from Json data//
+  let currentAirTemp =
+    jsonData.hours[currentTime].airTemperature[0].value * 2 + 32;
+  let currentWindDirection = "test";
+  if (jsonData.hours[currentTime].windDirection[0].value <= 90) {
+    currentWindDirection = "NE";
+  } else if (
+    jsonData.hours[currentTime].windDirection[0].value >= 91 &&
+    jsonData.hours[currentTime].windDirection[0].value <= 180
+  ) {
+    currentWindDirection = "SE";
+  } else if (
+    jsonData.hours[currentTime].windDirection[0].value >= 181 &&
+    jsonData.hours[currentTime].windDirection[0].value <= 270
+  ) {
+    currentWindDirection = "SW";
+  } else if (
+    jsonData.hours[currentTime].windDirection[0].value >= 271 &&
+    jsonData.hours[currentTime].windDirection[0].value <= 360
+  ) {
+    currentWindDirection = "NW";
+  }
 
-function displayCurrentWeater(jsonData) {
+  let currentWindSpeed = jsonData.hours[currentTime].windSpeed[0].value * 2.237;
+
+  let currentGust = jsonData.hours[currentTime].gust[0].value * 2.237;
+
+  let currentWaterTemp =
+    jsonData.hours[currentTime].waterTemperature[0].value * 2 + 32;
+
+  //add to DOM
   $("#current-weather-results").append(
-    `<li>Air Temp ${jsonData.hours[currentTime].airTemperature[0].value}*C</li>
+    `<li>Air Temp ${currentAirTemp}*F</li>
     
-   <li>windDirection ${jsonData.hours[currentTime].windDirection[0].value}</li>
-   <li>windSpeed ${jsonData.hours[currentTime].windSpeed[0].value} m/s</li>
-   <li>gust ${jsonData.hours[currentTime].gust[0].value} m/s</li>
-   <li>waterTemperature ${jsonData.hours[currentTime].waterTemperature[0].value}*C</li>`
+   <li>windDirection ${currentWindDirection}</li>
+   <li>windSpeed ${Math.round(currentWindSpeed)} mph</li>
+   <li>gust ${Math.round(currentGust)} mph</li>
+   <li>waterTemperature ${currentWaterTemp}*F</li>`
   );
-}
+}*/
 let currentTime = new Date().getUTCHours();
 
 console.log(currentTime);
+//submit event listener
+$("#user-selection").submit(function(event) {
+  event.preventDefault();
+  displaySelectedWeather(results);
+});
 
-//testing fetch api
+$(document).ready(function() {
+  console.log($("#user-time").val());
+  $("#user-time").change(function() {
+    console.log($("option:selected", this).text());
+  });
+});
+
+////User Selected Time////
+function displaySelectedWeather(jsonData, requestedTime) {
+  let selectedTime = !requestedTime ? $("#user-time").val() : requestedTime;
+  //convert units from Json data//
+  let selectedAirTemp =
+    jsonData.hours[selectedTime].airTemperature[0].value * 2 + 32;
+  let selectedWindDirection = "test";
+  if (jsonData.hours[selectedTime].windDirection[0].value <= 90) {
+    selectedWindDirection = "NE";
+  } else if (
+    jsonData.hours[selectedTime].windDirection[0].value >= 91 &&
+    jsonData.hours[selectedTime].windDirection[0].value <= 180
+  ) {
+    selectedWindDirection = "SE";
+  } else if (
+    jsonData.hours[selectedTime].windDirection[0].value >= 181 &&
+    jsonData.hours[selectedTime].windDirection[0].value <= 270
+  ) {
+    selectedWindDirection = "SW";
+  } else if (
+    jsonData.hours[selectedTime].windDirection[0].value >= 271 &&
+    jsonData.hours[selectedTime].windDirection[0].value <= 360
+  ) {
+    selectedWindDirection = "NW";
+  }
+
+  let selectedWindSpeed =
+    jsonData.hours[selectedTime].windSpeed[0].value * 2.237;
+
+  let selectedGust = jsonData.hours[currentTime].gust[0].value * 2.237;
+
+  let selectedWaterTemp =
+    jsonData.hours[selectedTime].waterTemperature[0].value * 2 + 32;
+
+  //add to DOM
+  if (requestedTime) {
+    $("#current-weather-results").append(
+      `<li><h2>${$("#user-time option")
+        .eq(currentTime)
+        .text()}</h2></li>
+      
+      <li>Air Temp ${selectedAirTemp}*F</li>
+      
+     <li>windDirection ${selectedWindDirection}</li>
+     <li>windSpeed ${Math.round(selectedWindSpeed)} mph</li>
+     <li>gust ${Math.round(selectedGust)} mph</li>
+     <li>waterTemperature ${selectedWaterTemp}*F</li>`
+    );
+  } else {
+    $("#selected-weather-results").append(
+      `<li><h2>${$("option:selected", this).text()}</h2></li>
+    <li>Air Temp ${selectedAirTemp}*F</li>
+    
+   <li>windDirection ${selectedWindDirection}</li>
+   <li>windSpeed ${Math.round(selectedWindSpeed)} mph</li>
+   <li>gust ${Math.round(selectedGust)} mph</li>
+   <li>waterTemperature ${selectedWaterTemp}*F</li>`
+    );
+  }
+}
+
+// fetch to Storm Glass API  //
 
 const lat = 27.7;
 const lng = -82.74;
@@ -41,13 +145,9 @@ fetch(
   .then(response => response.json())
   .then(jsonData => {
     // Do something with response data.
-    console.log(jsonData.hours[currentTime].airTemperature[0].value);
+    results = jsonData;
+    console.log(jsonData);
     console.log(jsonData.hours[currentTime].time);
-    displayCurrentWeater(jsonData);
+    displaySelectedWeather(jsonData, currentTime);
+    //displayCurrentWeater(jsonData);
   });
-
-//$("#time-picker").timepicker();
-// need to make  function(s) to convert metric units ,
-// moonrise/set sunrise/set will return a UTC timestamp, need to convert to local time
-// look at this https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
-//toLocaleDateString() or toLocaleString() <<< provides date and time when called without params
