@@ -46,6 +46,7 @@ fetch(
     displayCurrentWeater(jsonData);
   });
 
+//$("#time-picker").timepicker();
 // need to make  function(s) to convert metric units ,
 // moonrise/set sunrise/set will return a UTC timestamp, need to convert to local time
 // look at this https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
