@@ -1,5 +1,5 @@
 "use strict";
-// ok here we go
+
 let results;
 
 let currentTime = new Date().getUTCHours();
@@ -108,6 +108,6 @@ fetch(
   .then(jsonData => {
     results = jsonData;
     console.log(jsonData);
-    console.log(jsonData.hours[currentTime].time);
+
     displaySelectedWeather(jsonData, currentTime);
   });
