@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0 auto;
+  width: 80%;
+  line-height: 1.5;
+}
+
 li {
   list-style: none;
 }

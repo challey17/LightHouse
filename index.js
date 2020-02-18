@@ -8,7 +8,7 @@ console.log(currentTime);
 //submit event listener
 $("#user-selection").submit(function(event) {
   event.preventDefault();
-  //$("#selected-weather-results").remove();
+
   displaySelectedWeather(results);
 });
 
@@ -17,6 +17,7 @@ $(document).ready(function() {
   $("#user-time").change(function() {
     console.log($("option:selected", this).text());
   });
+  //clear results on click of reset btn
   $("#reset").on("click", function(event) {
     $("#selected-weather-results").empty();
   });
@@ -61,21 +62,21 @@ function displaySelectedWeather(jsonData, requestedTime) {
     $("#current-weather-results").append(
       `
       
-      <li>Air Temp ${Math.round(selectedAirTemp)}*F</li>
+      <li>Air Temp: ${Math.round(selectedAirTemp)}*F</li>
       
-     <li>windDirection ${selectedWindDirection}</li>
-     <li>windSpeed ${Math.round(selectedWindSpeed)} mph</li>
-     <li>gust ${Math.round(selectedGust)} mph</li>
+     <li>Wind Direction: ${selectedWindDirection}</li>
+     <li>Wind Speed: ${Math.round(selectedWindSpeed)} mph</li>
+     <li>Gust: ${Math.round(selectedGust)} mph</li>
      `
     );
   } else {
     $("#selected-weather-results").append(
       `<li><h2>${$("option:selected", this).text()}</h2></li>
-    <li>Air Temp ${Math.round(selectedAirTemp)}*F</li>
+    <li>Air Temp: ${Math.round(selectedAirTemp)}*F</li>
     
-   <li>windDirection ${selectedWindDirection}</li>
-   <li>windSpeed ${Math.round(selectedWindSpeed)} mph</li>
-   <li>gust ${Math.round(selectedGust)} mph</li>
+   <li>Wind Direction: ${selectedWindDirection}</li>
+   <li>Wind Speed: ${Math.round(selectedWindSpeed)} mph</li>
+   <li>Gust: ${Math.round(selectedGust)} mph</li>
    `
     );
   }
