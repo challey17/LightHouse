@@ -6,6 +6,11 @@ body {
   margin: 0 auto;
   width: 80%;
   line-height: 1.5;
+  align-content: center;
+}
+
+h1 {
+  font-size: 28px;
 }
 
 li {
