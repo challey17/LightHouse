@@ -3,17 +3,35 @@
 }
 
 body {
+  /*background-image: url(images/lighthouse-145556_1280.png);
+  background-size: contain;
+  background-repeat: no-repeat; */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  /*color: rgb(8, 168, 168);*/
   margin: 0 auto;
   width: 80%;
   line-height: 1.5;
   align-content: center;
-  background-image: url(images/lighthouse-145556_1280.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+}
+ul {
+  border: 2px solid black;
+  border-radius: 4px;
+  max-width: 300px;
+  line-height: 2.5;
+}
+
+#current-weather {
+  margin-bottom: 10vh;
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 40px;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 14px;
 }
 
 li {

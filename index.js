@@ -62,7 +62,7 @@ function displaySelectedWeather(jsonData, requestedTime) {
     $("#current-weather-results").append(
       `
       
-      <li>Air Temp: ${Math.round(selectedAirTemp)}*F</li>
+      <li>Air Temp: ${Math.round(selectedAirTemp)}°F</li>
       
      <li>Wind Direction: ${selectedWindDirection}</li>
      <li>Wind Speed: ${Math.round(selectedWindSpeed)} mph</li>
@@ -72,7 +72,7 @@ function displaySelectedWeather(jsonData, requestedTime) {
   } else {
     $("#selected-weather-results").append(
       `<li><h2>${$("option:selected", this).text()}</h2></li>
-    <li>Air Temp: ${Math.round(selectedAirTemp)}*F</li>
+    <li>Air Temp: ${Math.round(selectedAirTemp)}°F</li>
     
    <li>Wind Direction: ${selectedWindDirection}</li>
    <li>Wind Speed: ${Math.round(selectedWindSpeed)} mph</li>
