@@ -96,7 +96,7 @@ const params = [
   "waterTemperature"
 ].join(",");
 
-fetch(
+/*fetch(
   `https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${lng}&params=${params}&time=${currrentUTCtime}&source=sg`,
   {
     headers: {
@@ -111,4 +111,4 @@ fetch(
     console.log(jsonData);
 
     displaySelectedWeather(jsonData, currentTime);
-  });
+  });*/
