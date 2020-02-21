@@ -60,7 +60,7 @@ function displaySelectedWeather(jsonData, requestedTime) {
   //add to DOM
   if (requestedTime) {
     $("#current-weather-results").append(
-      `
+      `<li><h2>current conditions:</h2></li>
       
       <li>Air Temp: ${Math.round(selectedAirTemp)}°F</li>
       
