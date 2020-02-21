@@ -37,13 +37,14 @@ p {
   padding-bottom: 16px;
 }
 ul {
-  /*border: 2px solid black;*/
+  border: 2px solid white;
   background-color: rgba(21, 151, 226, 0.774);
   border-radius: 15px;
   width: 80%;
   max-width: 300px;
   line-height: 2.5;
   box-shadow: 12px 12px 10px 10px rgba(0, 0, 55, 0.2);
+  padding-bottom: 30px;
 }
 
 #current-weather {
