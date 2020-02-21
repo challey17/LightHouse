@@ -2,10 +2,16 @@
   box-sizing: border-box;
 }
 
-body {
-  /*background-image: url(images/lighthouse-145556_1280.png);
+header {
+  height: 50vh;
+  background-color: cyan;
+  background-position: right bottom 20%;
+  background-image: url(images/lighthouse-145556_1280.png);
   background-size: contain;
-  background-repeat: no-repeat; */
+  background-repeat: no-repeat;
+}
+
+body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   /*color: rgb(8, 168, 168);*/
