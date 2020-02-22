@@ -81,6 +81,12 @@ li {
   border: none;
 }
 
+footer {
+  text-align: center;
+  min-height: 5vh;
+  margin-top: 20vh;
+}
+
 @media screen and (min-width: 660px) {
   header {
     height: 60vh;
