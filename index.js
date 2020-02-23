@@ -5,19 +5,22 @@ let results;
 let currentTime = new Date().getUTCHours();
 
 console.log(currentTime);
+
 //submit event listener
 $("#user-selection").submit(function(event) {
   event.preventDefault();
 
   displaySelectedWeather(results);
 });
-//get user selected time for results display
+
+//get user selected time for results display //
 $(document).ready(function() {
   console.log($("#user-time").val());
   $("#user-time").change(function() {
     console.log($("option:selected", this).text());
   });
-  //clear results on click of reset btn
+
+  //clear results on click of reset btn //
   $("#reset").on("click", function(event) {
     $("#selected-weather-results").empty();
   });
@@ -54,7 +57,7 @@ function displaySelectedWeather(jsonData, requestedTime) {
 
   let selectedGust = jsonData.hours[currentTime].gust[0].value * 2.237;
 
-  //add to DOM
+  //add to DOM //
   if (requestedTime) {
     $("#current-weather-results").append(
       `<li><h2>current conditions:</h2></li>
