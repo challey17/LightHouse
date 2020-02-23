@@ -9,7 +9,11 @@ A site for searching marine weather conditions in the Tampa Bay.  Current condit
 
 ### Screenshots
 
-[landing page] (https://challey17.github.io/LightHouseimages/screenshot1.png)
+ ![screenshot1](images/screenshot1.png)
+
+ ![screenshot2](images/screenshot2.png)
+
+ ![screenshot3](images/screenshot3.png)
 
 ### Built With
 * HTML/CSS
@@ -17,3 +21,5 @@ A site for searching marine weather conditions in the Tampa Bay.  Current condit
 * jQuery
 * [StormGlass API](https://stormglass.io/)
   
+### Acknowledgements
+* Stephen Hall (Doc Hall), programming yoda
