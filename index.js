@@ -11,7 +11,7 @@ $("#user-selection").submit(function(event) {
 
   displaySelectedWeather(results);
 });
-
+//get user selected time for results display
 $(document).ready(function() {
   console.log($("#user-time").val());
   $("#user-time").change(function() {
@@ -53,9 +53,6 @@ function displaySelectedWeather(jsonData, requestedTime) {
     jsonData.hours[selectedTime].windSpeed[0].value * 2.237;
 
   let selectedGust = jsonData.hours[currentTime].gust[0].value * 2.237;
-
-  let selectedWaterTemp =
-    jsonData.hours[selectedTime].waterTemperature[0].value * 2 + 32;
 
   //add to DOM
   if (requestedTime) {
