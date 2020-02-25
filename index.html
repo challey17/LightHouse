@@ -17,15 +17,27 @@
     <main id="main">
       <section class="blurb">
         <h2>SAILING | FISHING | KAYAKING</h2>
-        <p>Marine Weather Conditions off Davis Island in Tampa Bay</p>
+        <p>Marine Weather Conditions | Search by Latitude and Longitude</p>
+      </section>
+      <section id="coordinates">
+        <h2>
+          See current Marine Weather conditions for any location worldwide:
+        </h2>
+        <form>
+          <label for="lat">latitude:</label>
+          <input type="number" id="lat" name="lat" min="-90" max="90" />
+          <label for="long">longitude:</label>
+          <input type="number" id="long" name="long" min="0" max="180" />
+        </form>
+        <button></button>
       </section>
       <section id="current-weather">
         <ul id="current-weather-results"></ul>
       </section>
       <section id="search-by-time">
         <p>
-          Search for multiple times to see how conditions will change while you
-          are on the water
+          Search for multiple times to see how conditions will change while
+          you're on the water
         </p>
         <form id="user-selection">
           <label for="user-time">search by time(s):</label>

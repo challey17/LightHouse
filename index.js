@@ -4,23 +4,20 @@ let results;
 
 let currentTime = new Date().getUTCHours();
 
-console.log(currentTime);
+let previousSelectedTime = "";
 
 //submit event listener
 $("#user-selection").submit(function(event) {
   event.preventDefault();
+  // keeps user from submiting same time value more than once
+  if (previousSelectedTime != $("#user-time").val()) {
+    previousSelectedTime = $("#user-time").val();
 
-  displaySelectedWeather(results);
+    displaySelectedWeather(results);
+  }
 });
 
-//get user selected time for results display //
 $(document).ready(function() {
-  console.log($("#user-time").val());
-  $("#user-time").change(function() {
-    console.log($("option:selected", this).text());
-  });
-
-  //clear results on click of reset btn //
   $("#reset").on("click", function(event) {
     $("#selected-weather-results").empty();
   });
@@ -60,7 +57,7 @@ function displaySelectedWeather(jsonData, requestedTime) {
   //add to DOM //
   if (requestedTime) {
     $("#current-weather-results").append(
-      `<li><h2>current conditions:</h2></li>
+      `<li><h2>Current Conditions:</h2></li>
       
       <li>Air Temp: ${Math.round(selectedAirTemp)}°F</li>
       
@@ -70,6 +67,8 @@ function displaySelectedWeather(jsonData, requestedTime) {
      `
     );
   } else {
+    $("#selected-weather-results").show();
+
     $("#selected-weather-results").append(
       `<li><h2>${$("option:selected", this).text()}</h2></li>
     <li>Air Temp: ${Math.round(selectedAirTemp)}°F</li>
@@ -108,7 +107,6 @@ fetch(
   .then(response => response.json())
   .then(jsonData => {
     results = jsonData;
-    console.log(jsonData);
 
     displaySelectedWeather(jsonData, currentTime);
   });
