@@ -34,7 +34,6 @@ body {
 
 p {
   text-align: center;
-  padding-bottom: 16px;
 }
 
 .blurb,
@@ -60,6 +59,7 @@ ul {
 }
 
 #current-weather {
+  margin-top: 5vh;
   margin-bottom: 10vh;
 }
 
@@ -83,8 +83,19 @@ li {
 }
 
 #user-time {
+  font-size: 12px;
+  padding: 4px;
   background-color: black;
   color: aliceblue;
+}
+
+#user-selection {
+  text-align: center;
+  font-size: 20px;
+}
+
+form select option {
+  font-size: 30px;
 }
 
 #selection,
@@ -115,7 +126,24 @@ footer {
   h1 {
     font-size: 48px;
   }
+  h2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
   p {
     font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  header {
+    height: 70vh;
+  }
+  h1 {
+    letter-spacing: 4px;
+    font-size: 56px;
+    padding-left: 2em;
+    padding-top: 0.5em;
   }
 }
