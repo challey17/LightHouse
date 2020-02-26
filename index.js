@@ -104,9 +104,17 @@ fetch(
     }
   }
 )
-  .then(response => response.json())
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  })
   .then(jsonData => {
     results = jsonData;
 
     displaySelectedWeather(jsonData, currentTime);
+  })
+  .catch(err => {
+    $("#js-error-message").text(`Something went wrong: ${err.message}`);
   });
