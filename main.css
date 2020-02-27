@@ -14,12 +14,6 @@ header {
   box-shadow: 12px 12px 10px 10px rgba(0, 0, 55, 0.2);
 }
 
-#main {
-  margin-left: 15%;
-  margin-right: 15%;
-  width: 80%;
-}
-
 body {
   background-color: rgb(21, 32, 43);
   color: aliceblue;
@@ -27,11 +21,14 @@ body {
     "Lucida Sans", Arial, sans-serif;
 
   margin: 0 auto;
-
   line-height: 1.5;
   align-items: center;
 }
 
+#main {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 p {
   text-align: center;
 }
@@ -136,7 +133,7 @@ footer {
   }
 }
 
-@media screen and (min-width: 1020px) {
+@media screen and (min-width: 1024px) {
   header {
     height: 70vh;
   }
@@ -145,5 +142,48 @@ footer {
     font-size: 56px;
     padding-left: 2em;
     padding-top: 0.5em;
+  }
+  li {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  h1 {
+    letter-spacing: 8px;
+    font-size: 70px;
+  }
+
+  h2 {
+    font-size: 38px;
+  }
+
+  p {
+    font-size: 30px;
+  }
+
+  li {
+    font-size: 30px;
+  }
+
+  ul {
+    max-width: 600px;
+  }
+
+  #user-time {
+    font-size: 20px;
+    padding: 8px;
+    background-color: black;
+    color: aliceblue;
+  }
+
+  #user-selection {
+    font-size: 30px;
+  }
+
+  #selection,
+  #reset {
+    font-size: 20px;
+    padding-bottom: 4px;
   }
 }

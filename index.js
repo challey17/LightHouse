@@ -95,6 +95,30 @@ const params = [
   "waterTemperature"
 ].join(",");
 
+/*fetch(
+  `https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${lng}&params=${params}&time=${currrentUTCtime}&source=sg`,
+  {
+    headers: {
+      Authorization:
+        "db77f6ce-46f5-11ea-8bd6-0242ac130002-db77f7e6-46f5-11ea-8bd6-0242ac130002"
+    }
+  }
+)
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error(response.statusText);
+  })
+  .then(jsonData => {
+    results = jsonData;
+
+    displaySelectedWeather(jsonData, currentTime);
+  })
+  .catch(err => {
+    $("#js-error-message").text(`Something went wrong: ${err.message}`);
+  }); */
+
 fetch(
   `https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${lng}&params=${params}&time=${currrentUTCtime}&source=sg`,
   {
@@ -105,6 +129,7 @@ fetch(
   }
 )
   .then(response => {
+    // error handling
     if (response.ok) {
       return response.json();
     }
