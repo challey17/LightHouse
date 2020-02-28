@@ -20,6 +20,8 @@ $("#user-selection").submit(function(event) {
 $(document).ready(function() {
   $("#reset").on("click", function(event) {
     $("#selected-weather-results").empty();
+    //reset btn refreshes page
+    location.reload();
   });
 });
 
